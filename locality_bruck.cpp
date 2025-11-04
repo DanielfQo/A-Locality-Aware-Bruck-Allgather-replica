@@ -8,7 +8,7 @@
 
 const int N = 2;         // elementos por proceso
 const int WARMUP = 20;   // iteraciones de calentamiento
-const int ITERS  = 10;   // iteraciones cronometradas
+const int ITERS  = 1000;   // iteraciones cronometradas
 const bool CHECK = true; // validar resultados
 
 void bruck_allgather(MPI_Comm comm, int id, int p, int* data, const int* init_data, int n) {
@@ -64,7 +64,7 @@ void loc_bruck_allgather(MPI_Comm comm, int id, int p,
             if (other == region_id) continue;
 
             int sendto = other * p_local;   
-            int recvfrom = other * p_local; /
+            int recvfrom = other * p_local; 
 
             int send_offset = region_offset;                
             int recv_offset = other * p_local * n;          
